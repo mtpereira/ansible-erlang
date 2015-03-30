@@ -1,0 +1,24 @@
+---
+- name: main - assert that required variables are defined
+  assert:
+    that:
+        - erlang_repo is defined
+        - erlang_packages_state is defined
+        - erlang_packages_force is defined
+        - erlang_additional_packages is defined
+        - erlang_repo_key_url is defined or
+          (erlang_repo_key_server is defined and erlang_repo_key_id is defined)
+        - erlang_pin_priority is defined
+
+- include: repository.yml
+  sudo: yes
+  tags: erlang_repository
+
+- include: packages.yml
+  sudo: yes
+  tags: erlang_packages
+
+- include: pin.yml
+  sudo: yes
+  tags: erlang_pin
+

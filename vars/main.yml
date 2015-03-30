@@ -1,0 +1,5 @@
+---
+erlang_packages_force: "{% if ansible_distribution == 'Debian' -%} yes {%- else -%} no {%- endif %}"
+
+erlang_pin_priority: 999
+

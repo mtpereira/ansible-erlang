@@ -1,0 +1,17 @@
+---
+- name: repository - add the repository
+  apt_repository:
+    repo: "deb {{ erlang_repo }}{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} {{ erlang_repo_components }}"
+    update_cache: no
+    state: present
+
+- name: repository - add the GPG key
+  apt_key:
+    url: "{{ erlang_repo_key_url | default(omit) }}"
+    keyserver: "{{ erlang_repo_key_server | default(omit) }}"
+    id: "{{ erlang_repo_key_id | default(omit) }}"
+    state: present
+
+- name: repository - update cache
+  apt:
+    update_cache: yes

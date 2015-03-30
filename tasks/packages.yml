@@ -1,0 +1,20 @@
+---
+- name: packages - install erlang
+  apt:
+    pkg: erlang
+    update_cache: yes
+    cache_valid_time: 3600
+    state: "{{ erlang_packages_state }}"
+    force: "{{ erlang_packages_force }}"
+
+- name: packages - install additional packages
+  apt:
+    pkg: "{{ item }}"
+    update_cache: yes
+    cache_valid_time: 3600
+    state: "{{ erlang_packages_state }}"
+    force: "{{ erlang_packages_force }}"
+  with_items: erlang_additional_packages
+  when: erlang_additional_packages is defined and
+        erlang_additional_packages != []
+

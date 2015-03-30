@@ -1,0 +1,3 @@
+Package: *
+Pin: origin {{ erlang_repo | regex_replace('^[a-zA-Z]+://(.*)?/$', '\\1') }}
+Pin-Priority: {{ erlang_pin_priority }}

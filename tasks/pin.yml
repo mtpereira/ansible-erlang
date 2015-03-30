@@ -1,0 +1,11 @@
+---
+- name: pin - set highest priority for this repository
+  template:
+    dest: /etc/apt/preferences.d/erlang
+    src: pin.j2
+    mode: 0644
+    owner: root
+    group: root
+  when: erlang_pin is defined and
+        erlang_pin
+
