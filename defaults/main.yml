@@ -1,5 +1,5 @@
 ---
-erlang_repo: "http{% if ansible_distribution != 'Debian' %}s{% endif %}://packages.erlang-solutions.com/"
+erlang_repo: "https://packages.erlang-solutions.com/"
 erlang_repo_key_url: "https://packages.erlang-solutions.com/{{ ansible_distribution | lower }}/erlang_solutions.asc"
 erlang_repo_components: "contrib"
 

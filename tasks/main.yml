@@ -11,14 +11,14 @@
         - erlang_pin_priority is defined
 
 - include: repository.yml
-  sudo: yes
+  become: yes
   tags: erlang_repository
 
 - include: packages.yml
-  sudo: yes
+  become: yes
   tags: erlang_packages
 
 - include: pin.yml
-  sudo: yes
+  become: yes
   tags: erlang_pin
 

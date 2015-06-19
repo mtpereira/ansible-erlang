@@ -42,12 +42,12 @@ Example Playbook
 
     - hosts: servers
       roles:
-         - mtpereira.erlang
+         - role: mtpereira.erlang
            erlang_additional_packages:
              - erlang-doc
              - erlang-manpages
              - erlang-mode
-           sudo: yes
+           become: yes
 
 License
 -------
