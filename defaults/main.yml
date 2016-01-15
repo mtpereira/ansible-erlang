@@ -8,4 +8,5 @@ erlang_additional_packages:
   - erlang-manpages
 
 erlang_pin: true
+erlang_pin_origin: "{{ erlang_repo | regex_replace('^[a-zA-Z]+://(.*)?/$', '\\\\1') }}"
 
