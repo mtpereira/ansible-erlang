@@ -1,4 +1,13 @@
 ---
+- name: repository - allow for HTTPS repos on Debian systems
+  apt:
+    pkg: apt-transport-https
+    update_cache: yes
+    cache_valid_time: 3600
+    state: present
+  when: erlang_repo.split(':')[0] == "https" and
+        ansible_distribution == "Debian"
+
 - name: repository - add the repository
   apt_repository:
     repo: "deb {{ erlang_repo }}{{ ansible_distribution | lower }} {{ ansible_distribution_release | lower }} {{ erlang_repo_components }}"
