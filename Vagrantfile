@@ -4,14 +4,14 @@
 boxes = {
   "ubuntu-trusty"  => {
                         :name => "ubuntu-trusty",
-                        :box => "chef/ubuntu-14.04",
+                        :box => "boxcutter/ubuntu1404",
                         :ip => '10.0.0.52',
                         :cpu => "100",
                         :ram => "128"
                       },
-  "debian-wheezy"  => {
-                        :name => "debian-wheezy",
-                        :box => "chef/debian-7.8",
+  "debian-jessie"  => {
+                        :name => "debian-jessie",
+                        :box => "boxcutter/debian8",
                         :ip => '10.0.0.53',
                         :cpu => "100",
                         :ram => "128"
@@ -40,7 +40,7 @@ Vagrant.configure("2") do |config|
         ansible.playbook = "test.yml"
         ansible.inventory_path = "./inventory"
         ansible.tags = ENV['ANSIBLE_TAGS'] ||= "all"
-        ansible.verbose = ENV['ANSIBLE_VERBOSE'] ||= "vv"
+        ansible.verbose = ENV['ANSIBLE_VERBOSE'] ||= "vvvv"
       end
     end
   end
