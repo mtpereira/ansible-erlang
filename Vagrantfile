@@ -37,7 +37,7 @@ Vagrant.configure("2") do |config|
       machine.vm.network :private_network, ip: box[:ip]
 
       machine.vm.provision :ansible do |ansible|
-        ansible.playbook = "test.yml"
+        ansible.playbook = "tests/test.yml"
         ansible.inventory_path = "./inventory"
         ansible.tags = ENV['ANSIBLE_TAGS'] ||= "all"
         ansible.verbose = ENV['ANSIBLE_VERBOSE'] ||= "vvvv"
