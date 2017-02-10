@@ -2,15 +2,10 @@
 - hosts: all
   become: yes
 
-  vars_files:
-    - defaults/main.yml
-    - vars/main.yml
+  roles:
+    - ../..
 
-  tasks:
-    - include: tasks/main.yml
-
-    - meta: flush_handlers
-
+  post_tasks:
     - name: test - check the installed repository
       command: apt-cache policy erlang
       changed_when: false
